@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import TVShow from '../interface/TVShow';
 
-interface TVShow {
-  id: number;
-  name: string;
-  poster_path: string;
-  vote_average: number;
-  overview: string;
-}
 
 interface TVSeriesProps {
   apiKey: string;
@@ -17,6 +11,7 @@ const TVSeries: React.FC<TVSeriesProps> = ({ apiKey }) => {
   const [tvShows, setTVShows] = useState<TVShow[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>('');
 
+  const [columns, setColumns] = useState<number>(4); // Default number of columns
   
   const API_URL = import.meta.env.VITE_REACT_APP_API_URL
 
@@ -37,18 +32,38 @@ const TVSeries: React.FC<TVSeriesProps> = ({ apiKey }) => {
   return (
     <div className="container mt-5">
       <h1 className="text-center mb-4">Popular TV Series</h1>
-      <div className="mb-3">
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Search for a serie"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
-      </div>
+
+      <div className="row">
+                <div className={`col-md-6`}>
+                    <div className="mb-3">
+                        <input
+                            type="text"
+                            className="form-control"
+                            placeholder="Search for a movie"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                        />
+                    </div>
+                </div>
+                <div className={`col-md-6`}>
+                    <div className="mb-3">
+                        <select
+                            className="form-control"
+                            value={columns}
+                            onChange={(e) => setColumns(Number(e.target.value))}
+                        >
+                            <option value={1}>1 Columns</option>
+                            <option value={2}>2 Columns</option>
+                            <option value={3}>3 Columns</option>
+                            <option value={4}>4 Columns</option>
+                            <option value={6}>6 Columns</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
       <div className="row">
         {filteredTVShows.map(serie => (
-          <div className="col-md-4" key={serie.id}>
+           <div className={`col-md-${12 / columns}`} key={serie.id}>
             <div className="card mb-4">
               {/* <img src={`https://image.tmdb.org/t/p/w500${serie.poster_path}`} className="card-img-top" alt={serie.name} /> */}
               <img src={`https://image.tmdb.org/t/p/w500${serie.backdrop_path}`} className="card-img-top" alt={serie.name} />
