@@ -10,11 +10,12 @@ interface PopularMoviesProps {
 const PopularMovies: React.FC<PopularMoviesProps> = ({ apiKey }) => {
     const [movies, setMovies] = useState<Movie[]>([]);
     const [searchQuery, setSearchQuery] = useState<string>('');
-    const [columns, setColumns] = useState<number>(4); // Default number of columns
+    const [columns, setColumns] = useState<number>(import.meta.env.VITE_REACT_APP_COLUMN); 
 
     const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
 
     useEffect(() => {
+      console.log('useEffect2');
         axios
             .get(`${API_URL}/movie/popular?api_key=${apiKey}`)
             .then((response) => {
@@ -38,7 +39,7 @@ const PopularMovies: React.FC<PopularMoviesProps> = ({ apiKey }) => {
                         <input
                             type="text"
                             className="form-control"
-                            placeholder="Search for a movie"
+                            placeholder="Search for a Movie"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                         />

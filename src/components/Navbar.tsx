@@ -14,6 +14,11 @@ export function Navbar() {
                     TV Series
                 </Link>
             </li>
+            <li className="nav-item">
+                <Link to="/actors" className="nav-link">
+                    Actors
+                </Link>
+            </li>
         </ul>
     </nav>
     );

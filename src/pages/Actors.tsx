@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import TVShow from '../interface/TVShow';
+import Actor from '../interface/Actor';
 
 
-interface TVSeriesProps {
+interface ActorsProps {
   apiKey: string;
 }
 
-const TVSeries: React.FC<TVSeriesProps> = ({ apiKey }) => {
-  const [tvShows, setTVShows] = useState<TVShow[]>([]);
+const Actors: React.FC<ActorsProps> = ({ apiKey }) => {
+  const [Actors, setActors] = useState<Actor[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   const [columns, setColumns] = useState<number>(import.meta.env.VITE_REACT_APP_COLUMN); // Default number of columns
@@ -16,23 +16,23 @@ const TVSeries: React.FC<TVSeriesProps> = ({ apiKey }) => {
   const API_URL = import.meta.env.VITE_REACT_APP_API_URL
 
   useEffect(() => {
-    console.log('useEffect3');
-    axios.get(`${API_URL}/tv/popular?api_key=${apiKey}`)
+    console.log('useEffect1');
+    axios.get(`${API_URL}/person/popular?api_key=${apiKey}`)
       .then(response => {
-        setTVShows(response.data.results);
+        setActors(response.data.results);
       })
       .catch(error => {
         console.error('Error fetching data:', error);
       });
-  }, []);
+  }, [apiKey]);
 
-  const filteredTVShows = tvShows.filter(tvShow =>
+  const filteredActors = Actors.filter(tvShow =>
     tvShow.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
     <div className="container mt-5">
-      <h1 className="text-center mb-4">Popular TV Series</h1>
+      <h1 className="text-center mb-4">Popular Actors</h1>
 
       <div className="row">
                 <div className={`col-md-6`}>
@@ -40,7 +40,7 @@ const TVSeries: React.FC<TVSeriesProps> = ({ apiKey }) => {
                         <input
                             type="text"
                             className="form-control"
-                            placeholder="Search for TV Serie"
+                            placeholder="Search for an Actor"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                         />
@@ -63,15 +63,15 @@ const TVSeries: React.FC<TVSeriesProps> = ({ apiKey }) => {
                 </div>
             </div>
       <div className="row">
-        {filteredTVShows.map(serie => (
+        {filteredActors.map(serie => (
            <div className={`col-md-${12 / columns}`} key={serie.id}>
             <div className="card mb-4">
               {/* <img src={`https://image.tmdb.org/t/p/w500${serie.poster_path}`} className="card-img-top" alt={serie.name} /> */}
-              <img src={`https://image.tmdb.org/t/p/w500${serie.backdrop_path}`} className="card-img-top" alt={serie.name} />
+              <img src={`https://image.tmdb.org/t/p/w500${serie.profile_path}`} className="card-img-top" alt={serie.name} />
               <div className="card-body">
                 <h5 className="card-title">{serie.name}</h5>
-                <p className="card-text">Vote Average: {serie.vote_average}</p>
-                <p className="card-text">{serie.overview}</p>
+                <p className="card-text">Popularity: {serie.popularity}</p>
+                <p className="card-text">Known For: {serie.known_for_department}</p>
               </div>
             </div>
           </div>
@@ -81,4 +81,4 @@ const TVSeries: React.FC<TVSeriesProps> = ({ apiKey }) => {
   );
 }
 
-export default TVSeries;
+export default Actors;
