@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import RoutesList from '../routes/routes';
+// import RoutesList from '../routes/routes';
 export function Navbar() {
     return (
         <nav className="navbar navbar-expand navbar-light bg-light">
