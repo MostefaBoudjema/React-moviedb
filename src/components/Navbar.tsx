@@ -3,15 +3,16 @@ import { Link } from 'react-router-dom';
 export function Navbar() {
     return (
         <nav className="navbar navbar-expand navbar-light bg-light">
-        <ul className="navbar-nav mr-auto">
+        <ul className="navbar-nav mx-auto">
+        {/* <ul className="navbar-nav mr-auto"> */}
             <li className="nav-item">
                 <Link to="/popular-movies" className="nav-link">
-                    Popular Movies
+                    Movies
                 </Link>
             </li>
             <li className="nav-item">
                 <Link to="/tv-series" className="nav-link">
-                    TV Series
+                    Series
                 </Link>
             </li>
             <li className="nav-item">

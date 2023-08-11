@@ -4,17 +4,18 @@ import React from 'react';
 
 interface SearchBarProps {
     value: string;
+    placeholderValue: string;
     onChange: (value: string) => void;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ value, onChange }) => {
+const SearchBar: React.FC<SearchBarProps> = ({ value,placeholderValue, onChange }) => {
     return (
         <div className="col-md-6">
             <div className="mb-3">
                 <input
                     type="text"
                     className="form-control"
-                    placeholder="Search for TV Serie"
+                    placeholder={placeholderValue}
                     value={value}
                     onChange={(e) => onChange(e.target.value)}
                 />

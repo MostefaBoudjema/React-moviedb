@@ -39,7 +39,7 @@ const Actors: React.FC<ActorsProps> = ({ apiKey }) => {
             <h1 className="text-center mb-4">Popular Actors</h1>
 
             <div className="row">
-                <SearchBar value={searchQuery} onChange={setSearchQuery} />
+                <SearchBar value={searchQuery} placeholderValue="Search for an Actor"  onChange={setSearchQuery} />
                 <ColumnsSelect value={columns} onChange={setColumns} />
             </div>
             <div className="row">
