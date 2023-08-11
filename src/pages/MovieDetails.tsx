@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import SingleMovie from '../interface/SingleMovie';
+import SingleMovie, {initialMovieState} from '../interface/SingleMovie';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 interface MovieDetailsProps {
@@ -7,7 +7,8 @@ interface MovieDetailsProps {
 }
 
 const MovieDetails: React.FC<MovieDetailsProps> = ({ apiKey }) => {
-    const [movie, setMovies] = useState<SingleMovie>({});
+    const [movie, setMovies] = useState<SingleMovie>(initialMovieState);
+   
     const { id } = useParams();
     const [isBackdrop, setIsBackdrop] = useState(false);
 
