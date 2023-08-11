@@ -4,7 +4,7 @@ export function Footer() {
         <div className="sticky-footer">
             <div className="pull-right"></div>
             <div>
-                <strong>Movie DB</strong> is a registered trademark of  - 1.0.1 -
+                <strong>Movie DB</strong> - 1.0.15 - 2023
             </div>
         </div>
     );
