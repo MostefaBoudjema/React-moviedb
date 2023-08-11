@@ -19,8 +19,12 @@ export function RootLayout() {
                 />
                 <Route path="/actors" element={<Actors apiKey={apiKey} />} />
                 <Route
-                    path="/movie/:id"
+                    path="/popular-movies/:id"
                     element={<MovieDetails apiKey={apiKey} />}
+                />
+                <Route
+                    path="/*"
+                    element={<PopularMovies apiKey={apiKey} />}
                 />
             </Routes>
         </>

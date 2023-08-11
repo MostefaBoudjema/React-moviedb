@@ -88,7 +88,7 @@ const PopularMovies: React.FC<PopularMoviesProps> = ({ apiKey }) => {
                                 <button className="btn btn-primary">
                                     {' '}
                                     <Link
-                                        to={`/movie/${movie.id}`}
+                                        to={`/popular-movies/${movie.id}`}
                                         className="text-decoration-none text-light"
                                     >
                                         Read More
