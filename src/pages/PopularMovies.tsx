@@ -54,7 +54,7 @@ const PopularMovies: React.FC<PopularMoviesProps> = ({ apiKey }) => {
     );
 
     return (
-        <div className="container mt-5">
+        <div className="container my-2">
             <h1 className="text-center mb-4">Popular Movies</h1>
             <div className="row">
                 <SearchBar value={searchQuery} placeholderValue="Search for a Movie" onChange={setSearchQuery} />

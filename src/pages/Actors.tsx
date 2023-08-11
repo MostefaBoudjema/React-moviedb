@@ -35,7 +35,7 @@ const Actors: React.FC<ActorsProps> = ({ apiKey }) => {
     );
 
     return (
-        <div className="container mt-5">
+        <div className="container  my-2">
             <h1 className="text-center mb-4">Popular Actors</h1>
 
             <div className="row">

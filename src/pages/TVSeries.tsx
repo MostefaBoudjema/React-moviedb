@@ -38,7 +38,7 @@ const TVSeries: React.FC<TVSeriesProps> = ({ apiKey }) => {
     );
 
     return (
-        <div className="container mt-5">
+        <div className="container  my-2">
             <h1 className="text-center mb-4">Popular TV Series</h1>
 
             <div className="row">
