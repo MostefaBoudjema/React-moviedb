@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Actor from '../interface/Actor';
-import SearchBar from '../components/SearchBar'; 
-import ColumnsSelect from '../components/ColumnsSelect'; 
-
+import SearchBar from '../components/SearchBar';
+import ColumnsSelect from '../components/ColumnsSelect';
+import { HeaderTitle } from '../components/HeaderTitle';
 
 interface ActorsProps {
     apiKey: string;
@@ -36,10 +36,13 @@ const Actors: React.FC<ActorsProps> = ({ apiKey }) => {
 
     return (
         <div className="container  my-2">
-            <h1 className="text-center mb-4">Popular Actors</h1>
-
+            <HeaderTitle value="Popular Actors" />
             <div className="row">
-                <SearchBar value={searchQuery} placeholderValue="Search for an Actor"  onChange={setSearchQuery} />
+                <SearchBar
+                    value={searchQuery}
+                    placeholderValue="Search for an Actor"
+                    onChange={setSearchQuery}
+                />
                 <ColumnsSelect value={columns} onChange={setColumns} />
             </div>
             <div className="row">

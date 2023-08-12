@@ -5,6 +5,7 @@ import Movie from '../interface/Movie';
 import SearchBar from '../components/SearchBar';
 import ColumnsSelect from '../components/ColumnsSelect';
 import { Link } from 'react-router-dom';
+import { HeaderTitle } from '../components/HeaderTitle';
 
 interface PopularMoviesProps {
     apiKey: string;
@@ -54,8 +55,8 @@ const PopularMovies: React.FC<PopularMoviesProps> = ({ apiKey }) => {
     );
 
     return (
-        <div className="container my-2">
-            <h1 className="text-center mb-4">Popular Movies</h1>
+        <div className="container my-2">            
+            <HeaderTitle value="Popular Movies" />
             <div className="row">
                 <SearchBar value={searchQuery} placeholderValue="Search for a Movie" onChange={setSearchQuery} />
                 <ColumnsSelect value={columns} onChange={setColumns} />

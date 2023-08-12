@@ -3,6 +3,7 @@ import axios from 'axios';
 import TVShow from '../interface/TVShow';
 import SearchBar from '../components/SearchBar'; 
 import ColumnsSelect from '../components/ColumnsSelect'; 
+import { HeaderTitle } from '../components/HeaderTitle';
 
 interface TVSeriesProps {
     apiKey: string;
@@ -39,8 +40,7 @@ const TVSeries: React.FC<TVSeriesProps> = ({ apiKey }) => {
 
     return (
         <div className="container  my-2">
-            <h1 className="text-center mb-4">Popular TV Series</h1>
-
+            <HeaderTitle value="Popular TV Series" />
             <div className="row">
                 <SearchBar value={searchQuery} placeholderValue="Search for a TV Serie"  onChange={setSearchQuery} />
                 <ColumnsSelect value={columns} onChange={setColumns} />
