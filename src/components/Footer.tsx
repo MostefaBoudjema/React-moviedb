@@ -5,7 +5,7 @@ export function Footer() {
         >
             <div className="container">
                 <div className="d-flex justify-content-right align-items-center">
-                <strong>Movie DB </strong> 
+                <strong>Popular MovieDb </strong> 
                 - 1.0.15 - 2023
                 </div>
             </div>
