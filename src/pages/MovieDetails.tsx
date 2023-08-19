@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
-import SingleMovie, {initialMovieState} from '../interface/SingleMovie';
+import SingleMovie, { initialMovieState } from '../interface/SingleMovie';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import StarRating from '../components/StarRating';
 interface MovieDetailsProps {
     apiKey: string;
 }
 
 const MovieDetails: React.FC<MovieDetailsProps> = ({ apiKey }) => {
     const [movie, setMovies] = useState<SingleMovie>(initialMovieState);
-   
+
     const { id } = useParams();
     const [isBackdrop, setIsBackdrop] = useState(false);
 
@@ -52,7 +53,9 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({ apiKey }) => {
                     <p className="mb-4">{movie.overview}</p>
                     <ul className="list-unstyled">
                         <li>
-                            <strong className="text-muted">Release Date:</strong>{' '}
+                            <strong className="text-muted">
+                                Release Date:
+                            </strong>{' '}
                             {movie.release_date}
                         </li>
                         <li>
@@ -60,12 +63,11 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({ apiKey }) => {
                             {movie.runtime} minutes
                         </li>
                         <li>
-                            <strong className="text-muted">Vote Average:</strong>{' '}
-                            {movie.vote_average}
-                        </li>
-                        <li>
                             <strong className="text-muted">Popularity:</strong>{' '}
                             {movie.popularity}
+                        </li>
+                        <li>
+                            <StarRating value={movie.vote_average} />
                         </li>
                     </ul>
                 </div>

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import TVShow from '../interface/TVShow';
-import SearchBar from '../components/SearchBar'; 
-import ColumnsSelect from '../components/ColumnsSelect'; 
+import SearchBar from '../components/SearchBar';
+import ColumnsSelect from '../components/ColumnsSelect';
 import { HeaderTitle } from '../components/HeaderTitle';
 
+import StarRating from '../components/StarRating';
 interface TVSeriesProps {
     apiKey: string;
 }
@@ -23,7 +24,7 @@ const TVSeries: React.FC<TVSeriesProps> = ({ apiKey }) => {
     const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
 
     useEffect(() => {
-        console.log('useEffect3');
+        // console.log('useEffect3');
         axios
             .get(`${API_URL}/tv/popular?api_key=${apiKey}`)
             .then((response) => {
@@ -42,7 +43,11 @@ const TVSeries: React.FC<TVSeriesProps> = ({ apiKey }) => {
         <div className="container  my-2">
             <HeaderTitle value="Popular TV Series" />
             <div className="row">
-                <SearchBar value={searchQuery} placeholderValue="Search for a TV Serie"  onChange={setSearchQuery} />
+                <SearchBar
+                    value={searchQuery}
+                    placeholderValue="Search for a TV Serie"
+                    onChange={setSearchQuery}
+                />
                 <ColumnsSelect value={columns} onChange={setColumns} />
             </div>
             <div className="row">
@@ -52,7 +57,9 @@ const TVSeries: React.FC<TVSeriesProps> = ({ apiKey }) => {
                             <img
                                 src={`https://image.tmdb.org/t/p/w500${
                                     isBackdrop
-                                        ? serie.backdrop_path
+                                        ? serie.backdrop_path != null
+                                            ? serie.backdrop_path
+                                            : serie.poster_path
                                         : serie.poster_path
                                 }`}
                                 className={`card-img-top ${
@@ -62,11 +69,19 @@ const TVSeries: React.FC<TVSeriesProps> = ({ apiKey }) => {
                                 onClick={toggleImage}
                             />
                             <div className="card-body">
-                                <h5 className="card-title">{serie.name}</h5>
+                                <h5 className="card-title">
+                                    {serie.name} (
+                                    {new Intl.DateTimeFormat('en-US', {
+                                        year: 'numeric',
+                                        month: 'long',
+                                    }).format(new Date(serie.first_air_date))}
+                                    )
+                                </h5>
+
+                                <StarRating value={serie.vote_average} />
                                 <p className="card-text">
-                                    Vote Average: {serie.vote_average}
+                                    {serie.overview.substring(0, 50)}...
                                 </p>
-                                <p className="card-text">{serie.overview.substring(0, 50)}...</p>
                             </div>
                         </div>
                     </div>

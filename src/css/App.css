@@ -52,3 +52,32 @@
   transform: rotate(0deg);
 }
 
+.star-rating {
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.star {
+  color: #ccc;
+}
+
+.star.filled {
+  color: #f7d251;
+}
+
+.star.half-filled {
+  color: #f7d251; /* Color for half-filled stars */
+  
+  fill: #ccc;
+  position: relative;
+  display: inline-block;
+  clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
+}
+
+.sticky-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000; /* Adjust z-index if needed */
+}

@@ -46,22 +46,25 @@ const Actors: React.FC<ActorsProps> = ({ apiKey }) => {
                 <ColumnsSelect value={columns} onChange={setColumns} />
             </div>
             <div className="row">
-                {filteredActors.map((serie) => (
-                    <div className={`col-md-${12 / columns}`} key={serie.id}>
+                {filteredActors.map((singleActor) => (
+                    <div className={`col-md-${12 / columns}`} key={singleActor.id}>
                         <div className="card mb-4">
-                            {/* <img src={`https://image.tmdb.org/t/p/w500${serie.poster_path}`} className="card-img-top" alt={serie.name} /> */}
+                            {/* <img src={`https://image.tmdb.org/t/p/w500${singleActor.poster_path}`} className="card-img-top" alt={singleActor.name} /> */}
                             <img
-                                src={`https://image.tmdb.org/t/p/w500${serie.profile_path}`}
+                                src={`https://image.tmdb.org/t/p/w500${singleActor.profile_path}`}
                                 className="card-img-top"
-                                alt={serie.name}
+                                alt={singleActor.name}
                             />
                             <div className="card-body">
-                                <h5 className="card-title">{serie.name}</h5>
+                                {/* <h5 className="card-title">{singleActor.name}</h5> */}
                                 <p className="card-text">
-                                    Popularity: {serie.popularity}
+                                   <strong>{singleActor.name}</strong> 
                                 </p>
                                 <p className="card-text">
-                                    Known For: {serie.known_for_department}
+                                    Popularity: {singleActor.popularity}
+                                </p>
+                                <p className="card-text">
+                                    Known For: {singleActor.known_for_department}
                                 </p>
                             </div>
                         </div>
