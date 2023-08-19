@@ -57,7 +57,7 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
                 //     backgroundImage: `url(https://image.tmdb.org/t/p/original/${bgImage1})`,
                 // }}
                 style={{
-                    backgroundImage: `url('/src/assets/bg3.png')`,
+                    backgroundImage: 'url(/banners/bg3.png)',
                 }}
             >
                 <Navbar />
@@ -66,7 +66,7 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
                 <div className="banner_section layout_padding">
                     <div className="logo">
                         <a href="index.html">
-                            <img src="/src/assets/images/logo.png" />
+                            <img src="/images/logo.png" />
                         </a>
                         <div
                             id="carouselExampleSlidesOnly"
@@ -234,7 +234,7 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
                         <div className="col-md-6 padding_right_0">
                             <div>
                                 {/* <img
-                                    src="/src/assets/images/about-img.png"
+                                    src="/images/about-img.png"
                                     className="about_img"
                                 /> */}
                                 {movies.length > 0 && (
@@ -253,7 +253,7 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
             <div
                 className="blog_section layout_padding"
                 style={{
-                    backgroundImage: `url('/src/assets/bg2.png')`,
+                    backgroundImage: 'url(/banners/bg2.png)',
                 }}
                 // style={{
                 //     backgroundImage: `url(https://image.tmdb.org/t/p/original/${bgImage2})`,
@@ -269,7 +269,7 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
                     <div className="play_icon_main">
                         {/* <div className="play_icon">
                             <a href="#">
-                                <img src="/src/assets/images/play-icon.png" />
+                                <img src="/images/play-icon.png" />
                             </a>
                         </div> */}
                     </div>
@@ -322,10 +322,10 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
                                         <div className="box_right">
                                             <div className="client_taital_left">
                                                 <div className="client_img">
-                                                    <img src="/src/assets/images/client-img.png" />
+                                                    <img src="/images/client-img.png" />
                                                 </div>
                                                 <div className="quick_icon">
-                                                    <img src="/src/assets/images/quick-icon.png" />
+                                                    <img src="/images/quick-icon.png" />
                                                 </div>
                                             </div>
                                             <div className="client_taital_right">
@@ -359,10 +359,10 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
                                         <div className="box_right">
                                             <div className="client_taital_left">
                                                 <div className="client_img">
-                                                    <img src="/src/assets/images/client-img.png" />
+                                                    <img src="/images/client-img.png" />
                                                 </div>
                                                 <div className="quick_icon">
-                                                    <img src="/src/assets/images/quick-icon.png" />
+                                                    <img src="/images/quick-icon.png" />
                                                 </div>
                                             </div>
                                             <div className="client_taital_right">
@@ -396,10 +396,10 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
                                         <div className="box_right">
                                             <div className="client_taital_left">
                                                 <div className="client_img">
-                                                    <img src="/src/assets/images/client-img.png" />
+                                                    <img src="/images/client-img.png" />
                                                 </div>
                                                 <div className="quick_icon">
-                                                    <img src="/src/assets/images/quick-icon.png" />
+                                                    <img src="/images/quick-icon.png" />
                                                 </div>
                                             </div>
                                             <div className="client_taital_right">
@@ -448,7 +448,7 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
             <div
                 className="footer_section layout_padding "
                 style={{
-                    backgroundImage: `url('/src/assets/bg1.png')`,
+                    backgroundImage: 'url(/banners/bg1.png)',
                 }}
                 // style={{
                 //         backgroundImage: `url(https://image.tmdb.org/t/p/original/${bgImage3})`,
@@ -468,13 +468,13 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
                     </div>
                     <div className="location_main">
                         <div className="call_text">
-                            <img src="/src/assets/images/call-icon.png" />
+                            <img src="/images/call-icon.png" />
                         </div>
                         <div className="call_text">
                             <a href="#">Call +01 1234567890</a>
                         </div>
                         <div className="call_text">
-                            <img src="/src/assets/images/mail-icon.png" />
+                            <img src="/images/mail-icon.png" />
                         </div>
                         <div className="call_text">
                             <a href="#">demo@gmail.com</a>
@@ -484,22 +484,22 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
                         <ul>
                             <li>
                                 <a href="#">
-                                    <img src="/src/assets/images/fb-icon.png" />
+                                    <img src="/images/fb-icon.png" />
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <img src="/src/assets/images/twitter-icon.png" />
+                                    <img src="/images/twitter-icon.png" />
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <img src="/src/assets/images/linkedin-icon.png" />
+                                    <img src="/images/linkedin-icon.png" />
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <img src="/src/assets/images/instagram-icon.png" />
+                                    <img src="/images/instagram-icon.png" />
                                 </a>
                             </li>
                         </ul>
