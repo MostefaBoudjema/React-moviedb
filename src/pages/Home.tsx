@@ -17,9 +17,9 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
     const [movies, setMovies] = useState<Movie[]>([]);
     const [Actors, setActors] = useState<Actor[]>([]);
 
-    // const [bgImage1, setBgImage1] = useState('');
-    // const [bgImage2, setBgImage2] = useState('');
-    // const [bgImage3, setBgImage3] = useState('');
+    const [bgImage1, setBgImage1] = useState('');
+    const [bgImage2, setBgImage2] = useState('');
+    const [bgImage3, setBgImage3] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -29,9 +29,9 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
                 );
                 setMovies(moviesResponse.data.results);
 
-                // setBgImage1(moviesResponse.data.results[1].backdrop_path);
-                // setBgImage2(moviesResponse.data.results[2].backdrop_path);
-                // setBgImage3(moviesResponse.data.results[3].backdrop_path);
+                setBgImage1(moviesResponse.data.results[1].backdrop_path);
+                setBgImage2(moviesResponse.data.results[5].backdrop_path);
+                setBgImage3(moviesResponse.data.results[3].backdrop_path);
                 const tvResponse = await axios.get(
                     `${API_URL}/tv/popular?api_key=${apiKey}`
                 );
@@ -52,12 +52,9 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
     return (
         <>
             <div
-                className="header_section"
-                // style={{
-                //     backgroundImage: `url(https://image.tmdb.org/t/p/original/${bgImage1})`,
-                // }}
+                className="header_section mask1"
                 style={{
-                    backgroundImage: 'url(/banners/bg3.png)',
+                    backgroundImage: `url(https://image.tmdb.org/t/p/original/${bgImage1})`,
                 }}
             >
                 <Navbar />
@@ -251,13 +248,10 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
             {/* <!-- about section end -->
       <!-- blog section start --> */}
             <div
-                className="blog_section layout_padding"
+                className="blog_section layout_padding mask2"
                 style={{
-                    backgroundImage: 'url(/banners/bg2.png)',
+                    backgroundImage: `url(https://image.tmdb.org/t/p/original/${bgImage2})`,
                 }}
-                // style={{
-                //     backgroundImage: `url(https://image.tmdb.org/t/p/original/${bgImage2})`,
-                // }}
             >
                 <div className="container">
                     <h1 className="blog_taital">See Our Movies</h1>
@@ -446,13 +440,10 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
             {/* <!-- choose section end -->
       <!-- footer section start --> */}
             <div
-                className="footer_section layout_padding "
+                className="footer_section layout_padding mask2"
                 style={{
-                    backgroundImage: 'url(/banners/bg1.png)',
-                }}
-                // style={{
-                //         backgroundImage: `url(https://image.tmdb.org/t/p/original/${bgImage3})`,
-                //     }}
+                        backgroundImage: `url(https://image.tmdb.org/t/p/original/${bgImage3})`,
+                    }}
             >
                 <div className="container">
                     <div className="input_btn_main">
