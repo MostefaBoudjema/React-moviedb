@@ -1,0 +1,134 @@
+.App {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+    text-align: center;
+  
+    .logo {
+      height: 6em;
+      padding: 1.5em;
+      will-change: filter;
+      transition: filter 300ms;
+  
+      &:hover {
+        filter: drop-shadow(0 0 2em #ffffffaa);
+      }
+  
+      &.react:hover {
+        filter: drop-shadow(0 0 2em #ffffffaa);
+      }
+    }
+  
+    @keyframes logo-spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  
+    @media (prefers-reduced-motion: no-preference) {
+      a:nth-of-type(2) .logo {
+        animation: logo-spin infinite 20s linear;
+      }
+    }
+  }
+  
+  .card {
+    padding: 2em;
+  
+    &-img-top {
+      transition: transform 0.3s ease-in-out;
+    }
+  }
+  
+  .backdrop {
+    transform: rotate(360deg);
+  }
+  
+  .poster {
+    transform: rotate(0deg);
+  }
+  
+  .star-rating {
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+  
+    .star {
+      color: #ccc;
+  
+      &.filled {
+        color: #f7d251;
+      }
+  
+      &.half-filled {
+        color: #f7d251; /* Color for half-filled stars */
+        fill: #ccc;
+        position: relative;
+        display: inline-block;
+        clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
+      }
+    }
+  }
+  
+  .sticky-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000; /* Adjust z-index if needed */
+  }
+  
+  .mask1, .mask2, .mask3, .mask4 {
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% auto;
+    mask-size: 100% auto;
+    width: 100%;
+  }
+  
+  .mask1 {
+    -webkit-mask-image: url(/svg/mask1B.svg);
+    mask-image: url(/svg/mask1.svg);
+  }
+  
+  .mask2 {
+    -webkit-mask-image: url(/svg/mask2B.svg);
+    mask-image: url(/svg/mask2.svg);
+  }
+  
+  .mask3 {
+    -webkit-mask-image: url(/svg/mask3B.svg);
+    mask-image: url(/svg/mask3.svg);
+  }
+  
+  .mask4 {
+    -webkit-mask-image: url(/svg/mask4.svg);
+    mask-image: url(/svg/mask4.svg);
+  }
+  
+  @media (max-width: 768px) {
+    .header_section {
+      height: auto;
+    }
+  
+    .navbar {
+      flex-direction: column;
+    }
+  
+    .banner_section {
+      padding: 20px;
+    }
+  
+    .services_section .row {
+      flex-direction: column;
+    }
+  
+    .services_section img {
+      width: 100%;
+    }
+  }
+  

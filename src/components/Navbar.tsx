@@ -1,55 +1,56 @@
 import { Link } from 'react-router-dom';
-// import RoutesList from '../routes/routes';
+
+import { useState } from 'react';
 export function Navbar() {
+    const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+
+    const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
+
     return (
         <div className="bg-light">
             <div className="container">
-                <nav className="navbar navbar-expand navbar-light">
-                    <div className="container-fluid">
-                        <div
-                            className="collapse navbar-collapse"
-                            id="navbarSupportedContent"
-                        >
-                            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li className="nav-item">
-                                    <Link to="/" className="nav-link">
-                                        <img
-                                            src="/logo192.png"
-                                            width="40"
-                                            height="60"
-                                            className="img-fluid"
-                                            alt="logo"
-                                        />
-                                        <strong className="m-3 d-none d-lg-inline-block">MovieDb</strong>
-                                    </Link>
-                                </li>
-                            </ul>
-                            <div className="d-flex">
-                                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                                    <li className="nav-item">
-                                        <Link
-                                            to="/popular-movies"
-                                            className="nav-link"
-                                        >
-                                            Movies
-                                        </Link>
-                                    </li>
-                                    <li className="nav-item">
-                                        <Link
-                                            to="/tv-series"
-                                            className="nav-link"
-                                        >
-                                            Series
-                                        </Link>
-                                    </li>
-                                    <li className="nav-item">
-                                        <Link to="/actors" className="nav-link">
-                                            Actors
-                                        </Link>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                <nav className="navbar navbar-expand-lg d-flex justify-content-between">
+                    <div className=''></div>
+                    <Link className="navbar-brand" to="/">
+                        <img src="/vite.svg" alt="Logo" /><strong className="m-3 d-none d-lg-inline-block">MovieDb</strong>
+                    </Link>
+
+                    <button
+                        className="navbar-toggler"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#navbarNav"
+                        aria-controls="navbarNav"
+                        aria-expanded={!isNavCollapsed}
+                        aria-label="Toggle navigation"
+                        onClick={handleNavCollapse}
+                    >
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div
+                        className={`${
+                            isNavCollapsed ? 'collapse' : ''
+                        } navbar-collapse`}
+                        id="navbarNav"
+                    >
+                        <ul className="navbar-nav mr-auto">
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/movies">
+                                    Movies
+                                </Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/tv-series">
+                                    TV Shows
+                                </Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/actors">
+                                    Actors
+                                </Link>
+                            </li>
+                        </ul>
                     </div>
                 </nav>
             </div>

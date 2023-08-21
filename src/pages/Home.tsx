@@ -1,4 +1,4 @@
-import '../css/style.css';
+import '../css/style.scss';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import TVShow from '../interface/TVShow';
@@ -21,6 +21,9 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
     const [bgImage2, setBgImage2] = useState('');
     const [bgImage3, setBgImage3] = useState('');
 
+    const generateRandomNumber = (min: number, max: number) => {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      };
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -29,9 +32,9 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
                 );
                 setMovies(moviesResponse.data.results);
 
-                setBgImage1(moviesResponse.data.results[1].backdrop_path);
-                setBgImage2(moviesResponse.data.results[5].backdrop_path);
-                setBgImage3(moviesResponse.data.results[3].backdrop_path);
+                setBgImage1(moviesResponse.data.results[generateRandomNumber(0, 2)].backdrop_path);
+                setBgImage2(moviesResponse.data.results[generateRandomNumber(3, 5)].backdrop_path);
+                setBgImage3(moviesResponse.data.results[generateRandomNumber(6, 8)].backdrop_path);
                 const tvResponse = await axios.get(
                     `${API_URL}/tv/popular?api_key=${apiKey}`
                 );
@@ -58,7 +61,6 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
                 }}
             >
                 <Navbar />
-                {/* <HeaderTitle value="Home" /> */}
                 {/* <!-- banner section start --> */}
                 <div className="banner_section layout_padding">
                     <div className="logo">
@@ -144,7 +146,7 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
                                     <div>
                                         {movies.length > 0 && (
                                             <img
-                                                src={`https://image.tmdb.org/t/p/w500${movies[0].poster_path}`}
+                                                src={`https://image.tmdb.org/t/p/w500${movies[generateRandomNumber(0, 19)].poster_path}`}
                                             />
                                         )}
                                     </div>
@@ -163,7 +165,7 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
                                     <div>
                                         {tvShows.length > 0 && (
                                             <img
-                                                src={`https://image.tmdb.org/t/p/w500${tvShows[0].poster_path}`}
+                                                src={`https://image.tmdb.org/t/p/w500${tvShows[generateRandomNumber(0, 19)].poster_path}`}
                                             />
                                         )}
                                     </div>
@@ -182,7 +184,7 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
                                     <div>
                                         {Actors.length > 0 && (
                                             <img
-                                                src={`https://image.tmdb.org/t/p/w500${Actors[0].profile_path}`}
+                                                src={`https://image.tmdb.org/t/p/w500${Actors[generateRandomNumber(0, 19)].profile_path}`}
                                             />
                                         )}
                                     </div>
@@ -236,7 +238,7 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
                                 /> */}
                                 {movies.length > 0 && (
                                     <img
-                                        src={`https://image.tmdb.org/t/p/original/${movies[8].backdrop_path}`}
+                                        src={`https://image.tmdb.org/t/p/original/${movies[generateRandomNumber(0, 19)].backdrop_path}`}
                                         className="about_img"
                                     />
                                 )}
@@ -440,7 +442,7 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
             {/* <!-- choose section end -->
       <!-- footer section start --> */}
             <div
-                className="footer_section layout_padding mask2"
+                className="footer_section layout_padding mask3"
                 style={{
                         backgroundImage: `url(https://image.tmdb.org/t/p/original/${bgImage3})`,
                     }}
