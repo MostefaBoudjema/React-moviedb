@@ -7,7 +7,7 @@ export function Navbar() {
     const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
 
     return (
-        <div className="bg-light">
+        <div className="bg-movie">
             <div className="container">
                 <nav className="navbar navbar-expand-lg d-flex justify-content-between">
                     <div className=''></div>

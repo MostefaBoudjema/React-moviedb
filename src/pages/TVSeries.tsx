@@ -53,30 +53,32 @@ const TVSeries: React.FC<TVSeriesProps> = ({ apiKey }) => {
             <div className="row">
                 {filteredTVShows.map((serie) => (
                     <div className={`col-md-${12 / columns}`} key={serie.id}>
-                        <div className="card mb-4">
-                            <img
-                                src={`https://image.tmdb.org/t/p/w500${
-                                    isBackdrop
-                                        ? serie.backdrop_path != null
-                                            ? serie.backdrop_path
+                        <div className="cardp mb-4">
+                            <div className="main_image">
+                                <img
+                                    src={`https://image.tmdb.org/t/p/w500${
+                                        isBackdrop
+                                            ? serie.backdrop_path != null
+                                                ? serie.backdrop_path
+                                                : serie.poster_path
                                             : serie.poster_path
-                                        : serie.poster_path
-                                }`}
-                                className={`card-img-top ${
-                                    isBackdrop ? 'backdrop' : 'poster'
-                                }`}
-                                alt={serie.name}
-                                onClick={toggleImage}
-                            />
+                                    }`}
+                                    className={`card-img-top ${
+                                        isBackdrop ? 'backdrop' : 'poster'
+                                    }`}
+                                    alt={serie.name}
+                                    onClick={toggleImage}
+                                />
+                            </div>
                             <div className="card-body">
-                                <h5 className="card-title">
+                                <p className="card-title">
                                     {serie.name} (
                                     {new Intl.DateTimeFormat('en-US', {
                                         year: 'numeric',
                                         month: 'long',
                                     }).format(new Date(serie.first_air_date))}
                                     )
-                                </h5>
+                                </p>
 
                                 <StarRating value={serie.vote_average} />
                                 <p className="card-text">

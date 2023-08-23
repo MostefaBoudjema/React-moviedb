@@ -146,7 +146,7 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
                                     <div>
                                         {movies.length > 0 && (
                                             <img
-                                                src={`https://image.tmdb.org/t/p/w500${movies[generateRandomNumber(0, 19)].poster_path}`}
+                                                src={`https://image.tmdb.org/t/p/w500${movies[generateRandomNumber(2, 4)].poster_path}`}
                                             />
                                         )}
                                     </div>
@@ -165,7 +165,7 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
                                     <div>
                                         {tvShows.length > 0 && (
                                             <img
-                                                src={`https://image.tmdb.org/t/p/w500${tvShows[generateRandomNumber(0, 19)].poster_path}`}
+                                                src={`https://image.tmdb.org/t/p/w500${tvShows[generateRandomNumber(2, 4)].poster_path}`}
                                             />
                                         )}
                                     </div>
@@ -184,7 +184,7 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
                                     <div>
                                         {Actors.length > 0 && (
                                             <img
-                                                src={`https://image.tmdb.org/t/p/w500${Actors[generateRandomNumber(0, 19)].profile_path}`}
+                                                src={`https://image.tmdb.org/t/p/w500${Actors[generateRandomNumber(2, 4)].profile_path}`}
                                             />
                                         )}
                                     </div>

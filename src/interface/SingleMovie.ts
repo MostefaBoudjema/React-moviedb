@@ -1,3 +1,5 @@
+import Credits, { initialCreditsState } from "./Credits";
+
 // Movie.ts
 interface SingleMovie {
     id: number;
@@ -13,6 +15,7 @@ interface SingleMovie {
     spoken_languages: string;
     vote_average: number;
     overview: string;
+    credits: Credits;
   }
   export const initialMovieState: SingleMovie = {
     id: 0,
@@ -28,6 +31,7 @@ interface SingleMovie {
     spoken_languages: '',
     vote_average: 0,
     overview: '',
+    credits:initialCreditsState,
   };
 
 export interface Country {

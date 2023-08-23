@@ -5,7 +5,9 @@ interface Actor {
     popularity: number;
     profile_path: string;
     known_for_department: string;
-  }
-  
-  export default Actor;
-  
+    known_for: {
+        poster_path: string;
+    }[];
+}
+
+export default Actor;

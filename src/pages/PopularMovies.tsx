@@ -19,7 +19,7 @@ const PopularMovies: React.FC<PopularMoviesProps> = ({ apiKey }) => {
     const [columns, setColumns] = useState<number>(
         import.meta.env.VITE_REACT_APP_COLUMN
     );
-    const [isBackdrop, setIsBackdrop] = useState(true);
+    const [isBackdrop, setIsBackdrop] = useState(false);
 
     const toggleImage = () => {
         setIsBackdrop(!isBackdrop);
@@ -74,31 +74,50 @@ const PopularMovies: React.FC<PopularMoviesProps> = ({ apiKey }) => {
                             className={`col-md-${12 / columns}`}
                             key={movie.id}
                         >
-                            <div className="card mb-4">
-                                <img
-                                    src={`https://image.tmdb.org/t/p/w500${
-                                        isBackdrop
-                                            ? movie.backdrop_path
-                                            : movie.poster_path
-                                    }`}
-                                    className={`card-img-top ${
-                                        isBackdrop ? 'backdrop' : 'poster'
-                                    }`}
-                                    alt={movie.title}
-                                    onClick={toggleImage}
-                                />
+                            <div className="cardp mb-4">
+                                <div className="main_image">
+                                    <img
+                                        src={`https://image.tmdb.org/t/p/w500${
+                                            isBackdrop
+                                                ? movie.backdrop_path != null
+                                                    ? movie.backdrop_path
+                                                    : movie.poster_path
+                                                : movie.poster_path
+                                        }`}
+                                        className={`card-img-top ${
+                                            isBackdrop ? 'backdrop' : 'poster'
+                                        }`}
+                                        alt={movie.title}
+                                        onClick={toggleImage}
+                                    />
+                                </div>
+                                {/* <div className="main_image image-container">
+                                    <img
+                                        src={`https://image.tmdb.org/t/p/w500${
+                                            isBackdrop
+                                                ? movie.backdrop_path
+                                                : movie.poster_path
+                                        }`}
+                                        className={`card-img-top img-fluid h-80 ${
+                                            isBackdrop ? 'backdrop' : 'poster'
+                                        }`}
+                                        alt={movie.title}
+                                        onClick={toggleImage}
+                                        style={{
+                                            objectFit: 'cover', // Maintain aspect ratio and cover the container
+                                            height: '100%', // Ensure the image takes up the full height
+                                        }}
+                                    />
+                                </div> */}
                                 <div className="card-body">
-                                    <h5 className="card-title">
-                                        {movie.title}{' '}
-                                        ({new Intl.DateTimeFormat('en-US', {
+                                    <p className="card-title">
+                                        {movie.title} (
+                                        {new Intl.DateTimeFormat('en-US', {
                                             year: 'numeric',
                                             month: 'long',
-                                        }).format(new Date(movie.release_date))})
-                                    </h5>
-
-                                    {/* <p className="card-text">
-                                        Vote Average: {movie.vote_average}
-                                    </p> */}
+                                        }).format(new Date(movie.release_date))}
+                                        )
+                                    </p>
                                     <StarRating value={movie.vote_average} />
                                     <p className="card-text">
                                         {movie.overview.substring(0, 50)}...
