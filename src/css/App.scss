@@ -53,8 +53,8 @@
     transform: rotate(0deg);
 }
 .bg-movie {
-    background-color: rgba(0, 0, 0, 0.05);
-    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.05);
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.1);
 }
 .star-rating {
     font-size: 24px;
@@ -98,8 +98,8 @@
 }
 
 .mask1 {
-    -webkit-mask-image: url(/svg/mask1B.svg);
-    mask-image: url(/svg/mask1.svg);
+    -webkit-mask-image: url(/svg/mask1C.svg);
+    mask-image: url(/svg/mask1C.svg);
 }
 
 .mask2 {

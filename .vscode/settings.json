@@ -9,7 +9,7 @@
         // "tab.activeForeground": "#FFFFFF",
         // "tab.inactiveForeground": "#000000",
 
-        "titleBar.activeForeground": "#000",
+        "titleBar.activeForeground": "#fff",
         "titleBar.activeBackground": "#2a1cc8",
 
         // "sideBar.background": "#2e3831",

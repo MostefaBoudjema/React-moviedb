@@ -64,7 +64,7 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
                 {/* <!-- banner section start --> */}
                 <div className="banner_section layout_padding">
                     <div className="logo">
-                        <a href="index.html">
+                        <a href="#">
                             <img src="/images/logo.png" />
                         </a>
                         <div
@@ -85,9 +85,9 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
                                             are ma available, but the majority
                                             have suffered
                                         </p>
-                                        <div className="read_bt">
+                                        {/* <div className="read_bt">
                                             <a href="#">Get A Quote</a>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                                 <div className="carousel-item">
@@ -102,9 +102,9 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
                                             are ma available, but the majority
                                             have suffered
                                         </p>
-                                        <div className="read_bt">
+                                        {/* <div className="read_bt">
                                             <a href="#">Get A Quote</a>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                                 <div className="carousel-item">
@@ -119,9 +119,9 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
                                             are ma available, but the majority
                                             have suffered
                                         </p>
-                                        <div className="read_bt">
+                                        {/* <div className="read_bt">
                                             <a href="#">Get A Quote</a>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             </div>

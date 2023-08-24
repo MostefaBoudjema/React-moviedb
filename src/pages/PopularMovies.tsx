@@ -5,9 +5,8 @@ import SearchBar from '../components/SearchBar';
 import ColumnsSelect from '../components/ColumnsSelect';
 import { Link } from 'react-router-dom';
 import { HeaderTitle } from '../components/HeaderTitle';
-import loadingGif from '../assets/loading.gif';
 import StarRating from '../components/StarRating';
-
+import LoadingSpinner from '../components/LoadingSpinner';
 interface PopularMoviesProps {
     apiKey: string;
 }
@@ -15,7 +14,8 @@ interface PopularMoviesProps {
 const PopularMovies: React.FC<PopularMoviesProps> = ({ apiKey }) => {
     const [movies, setMovies] = useState<Movie[]>([]);
     const [searchQuery, setSearchQuery] = useState<string>('');
-    const [loading, setLoading] = useState(true);
+    // const [loading, setLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
     const [columns, setColumns] = useState<number>(
         import.meta.env.VITE_REACT_APP_COLUMN
     );
@@ -29,20 +29,20 @@ const PopularMovies: React.FC<PopularMoviesProps> = ({ apiKey }) => {
 
     useEffect(() => {
         if (movies.length > 0) {
-            setLoading(false);
+            setIsLoading(false);
             return;
         }
 
-        console.log('useEffect2');
+        // console.log('useEffect2');
         axios
             .get(`${API_URL}/movie/popular?api_key=${apiKey}`)
             .then((response) => {
                 setMovies(response.data.results);
-                setLoading(false);
+                setIsLoading(false);
             })
             .catch((error) => {
                 console.error('Error fetching data:', error);
-                setLoading(false);
+                setIsLoading(false);
             });
     }, [API_URL, apiKey, movies]);
 
@@ -61,11 +61,9 @@ const PopularMovies: React.FC<PopularMoviesProps> = ({ apiKey }) => {
                 />
                 <ColumnsSelect value={columns} onChange={setColumns} />
             </div>
-            {loading ? (
+            {isLoading ? (
                 <div className="row">
-                    <div className="col-md-12 text-center">
-                        <img width="400px" src={loadingGif} alt="Loading..." />
-                    </div>
+                    <LoadingSpinner />
                 </div>
             ) : (
                 <div className="row">
@@ -75,7 +73,7 @@ const PopularMovies: React.FC<PopularMoviesProps> = ({ apiKey }) => {
                             key={movie.id}
                         >
                             <div className="cardp mb-4">
-                                <div className="main_image">
+                                {/* <div className="main_image">
                                     <img
                                         src={`https://image.tmdb.org/t/p/w500${
                                             isBackdrop
@@ -90,8 +88,8 @@ const PopularMovies: React.FC<PopularMoviesProps> = ({ apiKey }) => {
                                         alt={movie.title}
                                         onClick={toggleImage}
                                     />
-                                </div>
-                                {/* <div className="main_image image-container">
+                                </div> */}
+                                <div className="main_image image-container">
                                     <img
                                         src={`https://image.tmdb.org/t/p/w500${
                                             isBackdrop
@@ -103,12 +101,12 @@ const PopularMovies: React.FC<PopularMoviesProps> = ({ apiKey }) => {
                                         }`}
                                         alt={movie.title}
                                         onClick={toggleImage}
-                                        style={{
-                                            objectFit: 'cover', // Maintain aspect ratio and cover the container
-                                            height: '100%', // Ensure the image takes up the full height
-                                        }}
+                                        // style={{
+                                        //     objectFit: 'cover', // Maintain aspect ratio and cover the container
+                                        //     height: '100%', // Ensure the image takes up the full height
+                                        // }}
                                     />
-                                </div> */}
+                                </div>
                                 <div className="card-body">
                                     <p className="card-title">
                                         {movie.title} (
@@ -138,6 +136,7 @@ const PopularMovies: React.FC<PopularMoviesProps> = ({ apiKey }) => {
                     ))}
                 </div>
             )}
+            {isLoading && <LoadingSpinner />}
         </div>
     );
 };
