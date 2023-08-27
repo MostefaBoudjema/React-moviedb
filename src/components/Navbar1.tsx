@@ -10,8 +10,20 @@ export function Navbar() {
     const shouldApplyClass = location.pathname === '/';
     return (
         <div className={shouldApplyClass ? 'bg-movie' : ''}>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <div className="container-fluid">
+            <div className="container">
+                <nav className="navbar navbar-expand-lg d-flex justify-content-between">
+                    <Link
+                        className={`navbar-brand ${
+                            shouldApplyClass ? 'text-white' : ''
+                        }`}
+                        to="/"
+                    >
+                        <img src="/vite.svg" alt="Logo" />
+                        <strong className="m-3 d-none d-lg-inline-block">
+                            MovieDb
+                        </strong>
+                    </Link>
+
                     <button
                         className="navbar-toggler"
                         type="button"
@@ -24,64 +36,38 @@ export function Navbar() {
                     >
                         <span className="navbar-toggler-icon"></span>
                     </button>
+
                     <div
                         className={`${
                             isNavCollapsed ? 'collapse' : ''
                         } navbar-collapse`}
                         id="navbarNav"
                     >
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li>
-                                <Link
-                                    className={`mx-4 navbar-brand ${
-                                        shouldApplyClass ? 'text-white' : ''
-                                    }`}
-                                    to="/"
-                                >
-                                    <img src="/vite.svg" alt="Logo" />
-                                    <strong className="m-3 d-none d-lg-inline-block">
-                                        MovieDb
-                                    </strong>
-                                </Link>
-                            </li>
-                        </ul>
-                        <ul className="navbar-nav mr-auto mb-2 mb-lg-0">
-                            <li>
+                        <ul className="navbar-nav mr-auto fw-bold fs-61">
+                            <li className="nav-item">
                                 <Link
                                     className={`nav-link ${
                                         shouldApplyClass ? 'text-white' : ''
-                                    } ${
-                                        location.pathname === '/movies'
-                                            ? 'active'
-                                            : ''
                                     }`}
                                     to="/movies"
                                 >
                                     Movies
                                 </Link>
                             </li>
-                            <li>
+                            <li className="nav-item">
                                 <Link
                                     className={`nav-link ${
                                         shouldApplyClass ? 'text-white' : ''
-                                    } ${
-                                        location.pathname === '/tv-series'
-                                            ? 'active'
-                                            : ''
                                     }`}
                                     to="/tv-series"
                                 >
-                                    TVShows
+                                    TV Shows
                                 </Link>
                             </li>
-                            <li>
+                            <li className="nav-item">
                                 <Link
                                     className={`nav-link ${
                                         shouldApplyClass ? 'text-white' : ''
-                                    } ${
-                                        location.pathname === '/actors'
-                                            ? 'active'
-                                            : ''
                                     }`}
                                     to="/actors"
                                 >
@@ -90,8 +76,8 @@ export function Navbar() {
                             </li>
                         </ul>
                     </div>
-                </div>
-            </nav>
+                </nav>
+            </div>
         </div>
     );
 }
