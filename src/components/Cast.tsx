@@ -1,4 +1,5 @@
 import CastInterface from '../interface/CastInterface';
+import { Link } from 'react-router-dom';
 
 interface HeaderTitleProps {
     castMember: CastInterface[];
@@ -14,14 +15,16 @@ export const Cast: React.FC<HeaderTitleProps> = ({ castMember }) => {
                             key={index}
                             className="d-flex flex-column align-items-center me-3"
                         >
-                            <img
-                                src={`https://image.tmdb.org/t/p/w500${member.profile_path}`}
-                                alt={member.character}
-                                width="70px"
-                                className="rounded border border-white mb-2"
-                            />
-                            <p className='my-1'>{member.character}</p>
-                            <strong>{member.original_name}</strong>
+                            <Link to={`/actor/${member.id}`} className="text-decoration-none text-dark">
+                                <img
+                                    src={`https://image.tmdb.org/t/p/w500${member.profile_path}`}
+                                    alt={member.character}
+                                    width="70px"
+                                    className="rounded border border-white mb-2"
+                                />
+                                <p className='my-1'>{member.character}</p>
+                                <strong>{member.original_name}</strong>
+                            </Link>
                         </li>
                     ))}
                 </ul>

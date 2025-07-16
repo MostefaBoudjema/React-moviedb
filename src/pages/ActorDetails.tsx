@@ -11,87 +11,67 @@ interface ActorDetailsProps {
 
 const ActorDetails: React.FC<ActorDetailsProps> = ({ apiKey }) => {
     const [actor, setActors] = useState<SingleActor>(initialActorState);
-
     const { id } = useParams();
-    const [isBackdrop, setIsBackdrop] = useState(true);
-
-    const toggleImage = () => {
-        setIsBackdrop(!isBackdrop);
-    };
     const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
     useEffect(() => {
         const fetchActorData = async () => {
             try {
                 const response = await axios.get(
-                    `${API_URL}/actor/${id}?append_to_response=videos,credits&api_key=${apiKey}`
+                    `${API_URL}/actor/${id}?append_to_response=credits&api_key=${apiKey}`
                 );
                 setActors(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
         };
-
         fetchActorData();
     }, [id, apiKey]);
 
     return (
-        <div className="">
-            <div className="container mt-5 mb-5">
-                <div className="card">
-                    <div className="row g-0">
-                        <div className="col-md-6 px-5">
-                            <div className="d-flex flex-column justify-content-center ">
-                                <div className="main_image align-items-start h-50">
-                                    <img
-                                        src={`https://image.tmdb.org/t/p/w500${
-                                            isBackdrop
-                                                ? actor.backdrop_path
-                                                : actor.poster_path
-                                        }`}
-                                        className={`card-img-top ${
-                                            isBackdrop ? 'backdrop' : 'poster'
-                                        }`}
-                                        alt={actor.title}
-                                        onClick={toggleImage}
-                                    />
-                                </div>
+        <div className="container mt-5 mb-5">
+            <div className="card p-4">
+                <div className="row g-0">
+                    <div className="col-md-4 d-flex flex-column align-items-center">
+                        <img
+                            src={actor.profile_path ? `https://image.tmdb.org/t/p/w500${actor.profile_path}` : '/public/images/client-img.png'}
+                            className="img-fluid rounded mb-3"
+                            alt={actor.name}
+                            style={{ maxHeight: '400px', objectFit: 'cover' }}
+                        />
+                        <h2 className="fw-bold text-center">{actor.name}</h2>
+                        <span className="badge bg-secondary mb-2">{actor.known_for_department}</span>
+                        <p className="text-muted mb-1"><strong>Birthday:</strong> {actor.birthday || 'N/A'}</p>
+                        {actor.deathday && <p className="text-muted mb-1"><strong>Deathday:</strong> {actor.deathday}</p>}
+                        <p className="text-muted mb-1"><strong>Place of Birth:</strong> {actor.place_of_birth || 'N/A'}</p>
+                        <p className="text-muted mb-1"><strong>Popularity:</strong> {actor.popularity}</p>
+                    </div>
+                    <div className="col-md-8">
+                        <div className="p-3">
+                            <h4 className="fw-bold mb-3">Biography</h4>
+                            <p style={{ whiteSpace: 'pre-line' }}>{actor.biography || 'No biography available.'}</p>
+                            <h4 className="fw-bold mt-4 mb-3">Known For</h4>
+                            <div className="row">
+                                {actor.credits.cast && actor.credits.cast.length > 0 ? (
+                                    actor.credits.cast.slice(0, 8).map((credit) => (
+                                        <div className="col-6 col-md-4 col-lg-3 mb-3" key={credit.credit_id}>
+                                            <div className="card h-100">
+                                                <img
+                                                    src={credit.profile_path ? `https://image.tmdb.org/t/p/w200${credit.profile_path}` : '/public/images/client-img.png'}
+                                                    className="card-img-top"
+                                                    alt={credit.name}
+                                                    style={{ height: '200px', objectFit: 'cover' }}
+                                                />
+                                                <div className="card-body p-2">
+                                                    <h6 className="card-title mb-1">{credit.original_name || credit.name}</h6>
+                                                    <p className="card-text mb-0"><small>as {credit.character}</small></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))
+                                ) : (
+                                    <p>No credits available.</p>
+                                )}
                             </div>
-                        </div>
-                        <div className="col-md-6">
-                            <div className="p-3 right-side ">
-                                <div className="d-flex justify-content-between align-items-center">
-                                    <h1>
-                                        {actor.title} ({actor.release_date}
-                                        {/* {new Intl.DateTimeFormat('en-US', {
-                                            year: 'numeric',
-                                            month: 'long',
-                                        }).format(new Date(actor.release_date))} */}
-                                        )
-                                    </h1>
-                                    <StarRating value={actor.vote_average} /> (
-                                    {actor.vote_average}/10)
-                                </div>
-                                {actor.tagline}
-                                <div className="py-4">
-                                    <div className="mt-2 pr-3 content ">
-                                        <span className="fw-bold m-3 ">
-                                            Overview
-                                        </span>
-                                        <p className="mt-2">{actor.overview}</p>
-                                    </div>
-                                </div>
-
-                                {/* <div className="search-option">
-                                    <i className="bx bx-search-alt-2 first-search"></i>
-                                    <div className="inputs">
-                                        <input type="text" name="" />
-                                    </div>
-                                    <i className="bx bx-share-alt share"></i>
-                                </div> */}
-                            </div>
-                        </div>
-                        <div className="mt-5">
-                            <Cast castMember={actor.credits.cast} />
                         </div>
                     </div>
                 </div>

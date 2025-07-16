@@ -3,36 +3,29 @@ import Credits, { initialCreditsState } from "./Credits";
 // Actor.ts
 interface SingleActor {
     id: number;
-    title: string;
-    backdrop_path: string;
-    poster_path: string;
-    release_date: string;
-    runtime: string;
-    genres: string;
-    tagline: string;
-    production_countries: string;
-    popularity: string;
-    spoken_languages: string;
-    vote_average: number;
-    overview: string;
+    name: string;
+    profile_path: string;
+    biography: string;
+    birthday: string;
+    place_of_birth: string;
+    known_for_department: string;
+    popularity: number;
+    gender: number;
+    deathday?: string;
     credits: Credits;
-  }
-  export const initialActorState: SingleActor = {
+}
+export const initialActorState: SingleActor = {
     id: 0,
-    title: '',
-    backdrop_path: '',
-    poster_path: '',
-    release_date: '',
-    runtime: '',
-    genres: '',
-    tagline: '',
-    production_countries: '',
-    popularity: '',
-    spoken_languages: '',
-    vote_average: 0,
-    overview: '',
-    credits:initialCreditsState,
-  };
+    name: '',
+    profile_path: '',
+    biography: '',
+    birthday: '',
+    place_of_birth: '',
+    known_for_department: '',
+    popularity: 0,
+    gender: 0,
+    credits: initialCreditsState,
+};
 
 export interface Country {
     id: number;

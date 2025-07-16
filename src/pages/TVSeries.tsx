@@ -6,6 +6,7 @@ import ColumnsSelect from '../components/ColumnsSelect';
 import { HeaderTitle } from '../components/HeaderTitle';
 import StarRating from '../components/StarRating';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { Link } from 'react-router-dom';
 interface TVSeriesProps {
     apiKey: string;
 }
@@ -101,6 +102,14 @@ const TVSeries: React.FC<TVSeriesProps> = ({ apiKey }) => {
                                     <p className="card-text">
                                         {serie.overview.substring(0, 50)}...
                                     </p>
+                                    <button className="btn btn-primary mt-2">
+                                        <Link
+                                            to={`/tv-series/${serie.id}`}
+                                            className="text-decoration-none text-light"
+                                        >
+                                            Read More
+                                        </Link>
+                                    </button>
                                 </div>
                             </div>
                         </div>
