@@ -11,7 +11,8 @@ interface Cast {
     original_name: string;
     popularity: number;
     profile_path: string;
-
+    poster_path?: string;
+    media_type?: string;
 }
 export const initialCastState: Cast = {
     cast_id: 0,
@@ -25,5 +26,7 @@ export const initialCastState: Cast = {
     original_name: '',
     popularity: 0,
     profile_path: '',
+    poster_path: '',
+    media_type: '',
   };
 export default Cast;

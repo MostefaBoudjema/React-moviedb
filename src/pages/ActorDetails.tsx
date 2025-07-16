@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import SingleActor, { initialActorState } from '../interface/SingleActor';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../css/custom.scss';
 interface ActorDetailsProps {
     apiKey: string;
@@ -15,7 +16,7 @@ const ActorDetails: React.FC<ActorDetailsProps> = ({ apiKey }) => {
         const fetchActorData = async () => {
             try {
                 const response = await axios.get(
-                    `${API_URL}/actor/${id}?append_to_response=credits&api_key=${apiKey}`
+                    `${API_URL}/person/${id}?append_to_response=credits&api_key=${apiKey}`
                 );
                 setActors(response.data);
             } catch (error) {
@@ -53,12 +54,23 @@ const ActorDetails: React.FC<ActorDetailsProps> = ({ apiKey }) => {
                                     actor.credits.cast.slice(0, 8).map((credit) => (
                                         <div className="col-6 col-md-4 col-lg-3 mb-3" key={credit.credit_id}>
                                             <div className="card h-100">
-                                                <img
-                                                    src={credit.profile_path ? `https://image.tmdb.org/t/p/w200${credit.profile_path}` : '/public/images/client-img.png'}
-                                                    className="card-img-top"
-                                                    alt={credit.name}
-                                                    style={{ height: '200px', objectFit: 'cover' }}
-                                                />
+                                                <Link
+                                                    to={
+                                                        credit.media_type === 'movie'
+                                                            ? `/popular-movies/${credit.id}`
+                                                            : credit.media_type === 'tv'
+                                                            ? `/tv-series/${credit.id}`
+                                                            : '#'
+                                                    }
+                                                    style={{ textDecoration: 'none' }}
+                                                >
+                                                    <img
+                                                        src={credit.poster_path ? `https://image.tmdb.org/t/p/w200${credit.poster_path}` : '/public/images/client-img.png'}
+                                                        className="card-img-top"
+                                                        alt={credit.original_name || credit.name}
+                                                        style={{ height: '200px', objectFit: 'cover' }}
+                                                    />
+                                                </Link>
                                                 <div className="card-body p-2">
                                                     <h6 className="card-title mb-1">{credit.original_name || credit.name}</h6>
                                                     <p className="card-text mb-0"><small>as {credit.character}</small></p>
