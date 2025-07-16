@@ -1,7 +1,7 @@
 {
   "name": "react18-Moviez",
   "private": true,
-  "version": "1.0.21",
+  "version": "1.2.1",
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -150,3 +150,14 @@
     width: 150px;
     border-radius: 0px !important;
 }
+
+.text-on-dark {
+  color: #fff !important;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.7);
+}
+
+.badge-on-dark {
+  background-color: #17a2b8 !important;
+  color: #212529 !important;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.7);
+}

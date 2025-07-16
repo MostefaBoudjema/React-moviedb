@@ -13,6 +13,8 @@ interface Cast {
     profile_path: string;
     poster_path?: string;
     media_type?: string;
+    title?: string;
+    original_title?: string;
 }
 export const initialCastState: Cast = {
     cast_id: 0,
