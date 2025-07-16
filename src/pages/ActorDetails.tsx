@@ -57,7 +57,7 @@ const ActorDetails: React.FC<ActorDetailsProps> = ({ apiKey }) => {
                                                 <Link
                                                     to={
                                                         credit.media_type === 'movie'
-                                                            ? `/popular-movies/${credit.id}`
+                                                            ? `/movies/${credit.id}`
                                                             : credit.media_type === 'tv'
                                                             ? `/tv-series/${credit.id}`
                                                             : '#'

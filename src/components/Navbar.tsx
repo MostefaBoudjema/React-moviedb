@@ -17,7 +17,7 @@ export function Navbar() {
                         <Link className="navbar-brand-custom" to="/">
                             <div className="logo-brand-wrapper">
                                 <img src="/favicon.png" alt="Logo" className="navbar-logo" />
-                                <strong className="navbar-title">MovieDb</strong>
+                                <strong className="navbar-title">Moviez</strong>
                             </div>
                         </Link>
                         <button

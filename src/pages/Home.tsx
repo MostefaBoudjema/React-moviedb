@@ -106,15 +106,15 @@ const RowCarousel: React.FC<RowCarouselProps> = ({ title, items, type }) => {
                     let displayName = '';
                     if (type === 'movie') {
                         imageUrl = item.poster_path ? `https://image.tmdb.org/t/p/w300${item.poster_path}` : '';
-                        linkTo = `/movie/${item.id}`;
+                        linkTo = `/movies/${item.id}`;
                         displayName = item.title;
                     } else if (type === 'tv') {
                         imageUrl = item.poster_path ? `https://image.tmdb.org/t/p/w300${item.poster_path}` : '';
-                        linkTo = `/tv/${item.id}`;
+                        linkTo = `/tv-series/${item.id}`;
                         displayName = item.name;
                     } else if (type === 'actor') {
                         imageUrl = item.profile_path ? `https://image.tmdb.org/t/p/w300${item.profile_path}` : '';
-                        linkTo = `/actor/${item.id}`;
+                        linkTo = `/actors/${item.id}`;
                         displayName = item.name;
                     }
                     return (

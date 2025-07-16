@@ -60,34 +60,57 @@ const Actors: React.FC<ActorsProps> = ({ apiKey }) => {
                                     key={singleActor.id}
                                 >
                                     <div className="cardp mb-4">
-                                        <div
-                                            className="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg "
-                                            style={{
-                                                backgroundImage: `url(https://image.tmdb.org/t/p/w500${singleActor.profile_path})`,
-                                                backgroundPosition:
-                                                    'left center',
-                                            }}
-                                        >
-                                            <div className="d-flex flex-column h-100 p-4 pb-3 text-white text-shadow-1">
-                                                {/* <h2 className="pt-3 mt-5 mb-4 display-6 lh-1 fw-bold d-flex justify-content-center align-items-center">
-                                        {singleActor.name}
-                                    </h2> */}
-                                                <h2 className="pt-3 mt-5 mb-4 display-6 lh-1 fw-bold">
-                                                    {singleActor.name
-                                                        .split(' ')
-                                                        .map(
-                                                            (
-                                                                namePart,
-                                                                index
-                                                            ) => (
-                                                                <div className='actor-name-stroke'
-                                                                    key={index}
-                                                                >
-                                                                    {namePart}
-                                                                </div>
-                                                            )
-                                                        )}
-                                                </h2>
+                                        <div className="card card-cover h-100 overflow-hidden text-white rounded-5 shadow-lg position-relative" style={{ minHeight: '350px' }}>
+                                            {/* Actor image as absolutely positioned img */}
+                                            <img
+                                                src={
+                                                    singleActor.profile_path
+                                                        ? `https://image.tmdb.org/t/p/w500${singleActor.profile_path}`
+                                                        : '/public/images/img-1.png'
+                                                }
+                                                alt={singleActor.name}
+                                                style={{
+                                                    position: 'absolute',
+                                                    top: 0,
+                                                    left: 0,
+                                                    width: '100%',
+                                                    height: '100%',
+                                                    objectFit: 'cover',
+                                                    zIndex: 1,
+                                                }}
+                                            />
+                                            {/* Overlay for readability */}
+                                            <div
+                                                style={{
+                                                    position: 'absolute',
+                                                    top: 0,
+                                                    left: 0,
+                                                    width: '100%',
+                                                    height: '100%',
+                                                    background: 'rgba(0,0,0,0.35)',
+                                                    zIndex: 2,
+                                                }}
+                                            />
+                                            {/* Card content */}
+                                            <div className="d-flex flex-column h-100 p-4 pb-3 text-white text-shadow-1" style={{ position: 'relative', zIndex: 3 }}>
+                                                <Link to={`/actors/${singleActor.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                                    <h2 className="pt-3 mt-5 mb-4 display-6 lh-1 fw-bold">
+                                                        {singleActor.name
+                                                            .split(' ')
+                                                            .map(
+                                                                (
+                                                                    namePart,
+                                                                    index
+                                                                ) => (
+                                                                    <div className='actor-name-stroke'
+                                                                        key={index}
+                                                                    >
+                                                                        {namePart}
+                                                                    </div>
+                                                                )
+                                                            )}
+                                                    </h2>
+                                                </Link>
 
                                                 <ul className="d-flex list-unstyled mt-auto">
                                                     {singleActor.known_for.map((item, idx) => (
@@ -95,7 +118,7 @@ const Actors: React.FC<ActorsProps> = ({ apiKey }) => {
                                                             <Link
                                                                 to={
                                                                     item.media_type === 'movie'
-                                                                        ? `/popular-movies/${item.id}`
+                                                                        ? `/movies/${item.id}`
                                                                         : item.media_type === 'tv'
                                                                         ? `/tv-series/${item.id}`
                                                                         : '#'

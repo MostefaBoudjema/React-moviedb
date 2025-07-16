@@ -20,7 +20,7 @@ export function Navbar() {
                     >
                         <img src="/favicon.png" alt="Logo" />
                         <strong className="m-3 d-none d-lg-inline-block">
-                            MovieDb
+                            Moviez
                         </strong>
                     </Link>
 

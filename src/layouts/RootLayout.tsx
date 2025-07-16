@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'; 
+import { Routes, Route, Navigate } from 'react-router-dom'; 
 import PopularMovies from '../pages/PopularMovies';
 import Home from '../pages/Home';
 import TVSeries from '../pages/TVSeries';
@@ -17,7 +17,7 @@ export function RootLayout() {
                 <Routes>
                     <Route path="/" element={<Home apiKey={apiKey} />} />
                     <Route
-                        path="/popular-movies"
+                        path="/movies"
                         element={<PopularMovies apiKey={apiKey} />}
                     />
                     <Route
@@ -29,21 +29,21 @@ export function RootLayout() {
                         element={<Actors apiKey={apiKey} />}
                     />
                     <Route
-                        path="/popular-movies/:id"
+                        path="/movies/:id"
                         element={<MovieDetails apiKey={apiKey} />}
                     />
                     <Route
-                        path="/actor/:id"
+                        path="/actors/:id"
                         element={<ActorDetails apiKey={apiKey} />}
                     />
                     <Route
                         path="/tv-series/:id"
                         element={<SerieDetails apiKey={apiKey} />}
                     />
-                    <Route
+                    {/* <Route
                         path="/*"
-                        element={<PopularMovies apiKey={apiKey} />}
-                    />
+                        element={<Navigate to="/" replace />}
+                    /> */}
                 </Routes>
             </div>
         </>
