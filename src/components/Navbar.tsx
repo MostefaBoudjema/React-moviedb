@@ -16,7 +16,7 @@ export function Navbar() {
                     <div className="navbar-header-row">
                         <Link className="navbar-brand-custom" to="/">
                             <div className="logo-brand-wrapper">
-                                <img src="/vite.svg" alt="Logo" className="navbar-logo" />
+                                <img src="/favicon.png" alt="Logo" className="navbar-logo" />
                                 <strong className="navbar-title">MovieDb</strong>
                             </div>
                         </Link>

@@ -18,7 +18,7 @@ export function Navbar() {
                         }`}
                         to="/"
                     >
-                        <img src="/vite.svg" alt="Logo" />
+                        <img src="/favicon.png" alt="Logo" />
                         <strong className="m-3 d-none d-lg-inline-block">
                             MovieDb
                         </strong>
