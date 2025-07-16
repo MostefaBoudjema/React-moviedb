@@ -1,10 +1,10 @@
 import { Link, useLocation } from 'react-router-dom';
 
-import { useState } from 'react';
+// import { useState } from 'react';
 export function Navbar() {
-    const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+    // const [isNavCollapsed, setIsNavCollapsed] = useState(true);
 
-    const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
+    // const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
     const location = useLocation();
 
     const shouldApplyClass = location.pathname === '/';
