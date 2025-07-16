@@ -66,7 +66,7 @@ const Home: React.FC<HomeProps> = ({ apiKey }) => {
                     }}
                 >
                     <div style={{ maxWidth: 600 }}>
-                        <h1 style={{ fontSize: '3rem', fontWeight: 700, marginBottom: 16 }}>{featuredMovie.title}</h1>
+                        <h1 className="hero-title" style={{ fontSize: '3rem', fontWeight: 700, marginBottom: 16 }}>{featuredMovie.title}</h1>
                         <p style={{ fontSize: '1.2rem', marginBottom: 24, maxHeight: 120, overflow: 'hidden', textOverflow: 'ellipsis' }}>{featuredMovie.overview}</p>
                         <div style={{ display: 'flex', gap: 16 }}>
                             <Link to={`/movie/${featuredMovie.id}`} className="hero-btn hero-btn-play">Play</Link>

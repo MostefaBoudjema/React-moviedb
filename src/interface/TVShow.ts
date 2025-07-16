@@ -1,4 +1,6 @@
 // TVShow.ts
+import Credits, { initialCreditsState } from "./Credits";
+
 interface TVShow {
     id: number;
     name: string;
@@ -7,6 +9,7 @@ interface TVShow {
     vote_average: number;
     overview: string;
     first_air_date: string;
+    credits: Credits;
   }
   
   export default TVShow;
@@ -19,5 +22,6 @@ interface TVShow {
     vote_average: 0,
     overview: '',
     first_air_date: '',
+    credits: initialCreditsState,
   };
   

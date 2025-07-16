@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import StarRating from '../components/StarRating';
 import '../css/custom.scss';
-// import { Cast } from '../components/Cast'; // Uncomment if you want to show cast for TV shows
+import { Cast } from '../components/Cast'; // Uncomment if you want to show cast for TV shows
 
 interface SerieDetailsProps {
     apiKey: string;
@@ -23,7 +23,7 @@ const SerieDetails: React.FC<SerieDetailsProps> = ({ apiKey }) => {
         const fetchSerieData = async () => {
             try {
                 const response = await axios.get(
-                    `${API_URL}/tv/${id}?api_key=${apiKey}`
+                    `${API_URL}/tv/${id}?append_to_response=credits&api_key=${apiKey}`
                 );
                 setSerie(response.data);
             } catch (error) {
@@ -76,11 +76,10 @@ const SerieDetails: React.FC<SerieDetailsProps> = ({ apiKey }) => {
                                 {/* Add more TV show details here if needed */}
                             </div>
                         </div>
-                        {/* Uncomment and adapt if you want to show cast for TV shows
-                        <div className="mt-5">
-                            <Cast castMember={serie.credits?.cast || []} />
-                        </div>
-                        */}
+                    </div>
+                    {/* Cast Section */}
+                    <div className="mt-5">
+                        <Cast castMember={serie.credits?.cast || []} />
                     </div>
                 </div>
             </div>

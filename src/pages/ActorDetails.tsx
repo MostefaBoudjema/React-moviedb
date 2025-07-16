@@ -2,9 +2,7 @@ import { useState, useEffect } from 'react';
 import SingleActor, { initialActorState } from '../interface/SingleActor';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import StarRating from '../components/StarRating';
 import '../css/custom.scss';
-import { Cast } from '../components/Cast';
 interface ActorDetailsProps {
     apiKey: string;
 }

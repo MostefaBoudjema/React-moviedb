@@ -983,3 +983,149 @@ button {
 .copyright_text a:hover {
     color: #e27141;
 }
+
+.hero-title {
+  font-family: 'Righteous', cursive, sans-serif;
+  color: #fff;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.navbar-custom {
+  background: #181c24;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 0.5rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.logo-brand-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo {
+  width: 38px;
+  height: 38px;
+  margin-right: 0.75rem;
+}
+
+.navbar-title {
+  color: #fff;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.navbar-nav-custom {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+  gap: 2rem;
+  width: 100%;
+}
+
+.navbar-nav-custom > li:first-child {
+  margin-right: auto;
+}
+
+.nav-link-custom {
+  color: #cfd8dc;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-link-custom:hover {
+  background: #232a36;
+  color: #fff;
+}
+
+.nav-link-custom.active {
+  background: #2e7dff;
+  color: #fff;
+  font-weight: 600;
+}
+
+.navbar-toggler-custom {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: none;
+}
+
+.navbar-toggler-icon-custom {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  position: relative;
+}
+
+.navbar-toggler-icon-custom::before,
+.navbar-toggler-icon-custom::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 28px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  transition: 0.2s;
+}
+
+.navbar-toggler-icon-custom::before {
+  top: -8px;
+}
+
+.navbar-toggler-icon-custom::after {
+  top: 8px;
+}
+
+// Responsive styles
+@media (max-width: 991px) {
+  .navbar-container {
+    flex-direction: row;
+  }
+  .navbar-collapse-custom {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #181c24;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: max-height 0.3s ease;
+    overflow: hidden;
+    max-height: 0;
+    z-index: 99;
+  }
+  .navbar-collapse-custom.expanded {
+    max-height: 300px;
+    padding-bottom: 1rem;
+  }
+  .navbar-nav-custom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 1rem 0;
+  }
+  .navbar-toggler-custom {
+    display: block;
+  }
+}
