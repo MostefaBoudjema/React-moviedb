@@ -80,7 +80,7 @@ const Actors: React.FC<ActorsProps> = ({ apiKey }) => {
                                                                 namePart,
                                                                 index
                                                             ) => (
-                                                                <div className=''
+                                                                <div className='actor-name-stroke'
                                                                     key={index}
                                                                 >
                                                                     {namePart}

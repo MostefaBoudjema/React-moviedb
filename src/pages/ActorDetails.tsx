@@ -37,7 +37,7 @@ const ActorDetails: React.FC<ActorDetailsProps> = ({ apiKey }) => {
                             alt={actor.name}
                             style={{ maxHeight: '400px', objectFit: 'cover' }}
                         />
-                        <h2 className="fw-bold text-center">{actor.name}</h2>
+                        <h2 className="fw-bold text-center" style={{ textShadow: '0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff' }}>{actor.name}</h2>
                         <span className="badge bg-secondary mb-2">{actor.known_for_department}</span>
                         <p className="text-muted mb-1"><strong>Birthday:</strong> {actor.birthday || 'N/A'}</p>
                         {actor.deathday && <p className="text-muted mb-1"><strong>Deathday:</strong> {actor.deathday}</p>}

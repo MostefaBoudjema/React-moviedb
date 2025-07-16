@@ -84,6 +84,8 @@
     bottom: 0;
     width: 100%;
     z-index: 1000; /* Adjust z-index if needed */
+    background-color: #111 !important;
+    color: #fff !important;
 }
 
 .mask1,
@@ -152,4 +154,28 @@
     .services_section img {
         width: 100%;
     }
+
+    .sticky-footer {
+        text-align: center;
+    }
+    .footer-content {
+        justify-content: center !important;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+// White stroke effect for actor names
+.actor-name-stroke {
+  text-shadow:
+    -1px -1px 0 #fff,
+     1px -1px 0 #fff,
+    -1px  1px 0 #fff,
+     1px  1px 0 #fff,
+     0px  2px 0 #fff,
+     2px  0px 0 #fff,
+     0px -2px 0 #fff,
+    -2px  0px 0 #fff;
+  color: #222;
+  font-weight: bold;
 }
